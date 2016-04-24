@@ -14,8 +14,6 @@ matrix:
 before_install:
   - brew tap homebrew/versions
   - brew update
-  - mkdir -p "$(brew --repo)/Library/Taps/yous"
-  - ln -s $PWD "$(brew --repo)/Library/Taps/yous/fadedrubies"
 install:
   - brew uninstall gcc48 gcc49 gcc -f
   - brew install homebrew/versions/gcc48
