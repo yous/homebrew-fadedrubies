@@ -1,0 +1,153 @@
+language: objective-c
+sudo: required
+matrix:
+  include:
+    - env: OSX=10.11
+      os: osx
+      osx_image: xcode7.3
+    - env: OSX=10.10
+      os: osx
+      osx_image: xcode7.1
+    - env: OSX=10.9
+      os: osx
+      osx_image: beta-xcode6.2
+before_install:
+  - brew tap homebrew/versions
+  - brew update
+  - mkdir -p "$(brew --repo)/Library/Taps/yous"
+  - ln -s $PWD "$(brew --repo)/Library/Taps/yous/fadedrubies"
+install:
+  - brew install homebrew/versions/gcc48
+  - brew install homebrew/versions/gcc49
+  - brew install gcc
+script:
+  - brew test-bot --tap=yous/fadedrubies
+
+  - TARGET=ruby-1.8.6-p368 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.6-p369 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.6-p383 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.6-p388 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.6-p398 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.6-p399 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.6-p420 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+
+  - TARGET=ruby-1.8.7-preview4 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p17 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p22 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p71 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p72 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p160 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p173 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p174 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p248 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p249 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p299 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p301 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p302 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p330 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p334 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p352 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p357 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p358 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p370 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p371 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p373 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.8.7-p374 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+
+  - TARGET=ruby-1.9.0-2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.0-3 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.0-4 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.0-5 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+
+  - TARGET=ruby-1.9.1-preview1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-preview2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-rc1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-rc2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-p0 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-p129 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-p243 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-p376 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-p378 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-p429 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-p430 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.1-p431 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+
+  - TARGET=ruby-1.9.2-preview1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.2-preview3 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.2-rc1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.2-rc2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.2-p0 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.2-p136 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.2-p180 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.2-p290 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.2-p318 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.2-p320 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.2-p330 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+
+  - TARGET=ruby-1.9.3-preview1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-rc1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p0 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p105 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p125 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p194 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p286 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p327 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p362 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p374 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p385 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p392 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p426 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p429 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p448 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p484 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p545 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p547 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p550 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-1.9.3-p551 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+
+  - TARGET=ruby-2.0.0-preview1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-preview2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-rc1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-rc2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p0 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p195 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p247 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p353 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p451 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p481 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p576 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p594 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p598 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p643 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p645 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p647 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.0.0-p648 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+
+  - TARGET=ruby-2.1.0-preview1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.0-preview2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.0-rc1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.0 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.3 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.4 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.5 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.6 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.7 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.8 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.9 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.1.10 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+
+  - TARGET=ruby-2.2.0-preview1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.2.0-preview2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.2.0-rc1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.2.0 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.2.1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.2.2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.2.3 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.2.4 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+
+  - TARGET=ruby-2.3.0-preview1 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.3.0-preview2 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - TARGET=ruby-2.3.0 brew install $TARGET && brew test $TARGET && brew unlink $TARGET
