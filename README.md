@@ -7,10 +7,10 @@ Old Ruby formulae for the Homebrew package manager.
 To install Ruby 2.3.0:
 
 ``` sh
-brew tap yous/fadedrubies
-brew install ruby-2.3.0
-brew test ruby-2.3.0
-ruby-2.3.0 -e 'puts RUBY_VERSION'
+$ brew tap yous/fadedrubies
+$ brew install ruby-2.3.0
+$ brew test ruby-2.3.0
+$ ruby-2.3.0 -e 'puts RUBY_VERSION'
 2.3.0
 ```
 
