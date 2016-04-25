@@ -37,4 +37,10 @@ install:
   - brew install homebrew/versions/gcc49
   - brew install gcc
 script:
-  - brew test-bot --tap=yous/fadedrubies
+  - export TARGET="ruby-1.8.6-p368" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.6-p369" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.6-p383" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.6-p388" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.6-p398" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.6-p399" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.6-p420" && brew install $TARGET && brew test $TARGET
