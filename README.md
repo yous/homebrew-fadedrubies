@@ -1,5 +1,7 @@
 # homebrew-fadedrubies
 
+[![Build Status](https://travis-ci.org/yous/homebrew-fadedrubies.svg?branch=master)](https://travis-ci.org/yous/homebrew-fadedrubies)
+
 Old Ruby formulae for the Homebrew package manager.
 
 ## Usage
