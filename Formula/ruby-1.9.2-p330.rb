@@ -24,6 +24,7 @@ class Ruby192P330 < Formula
     build 703
   end
 
+  fails_with :gcc => "4.7"
   fails_with :gcc => "4.8"
   fails_with :gcc => "4.9"
   fails_with :gcc => "5"
