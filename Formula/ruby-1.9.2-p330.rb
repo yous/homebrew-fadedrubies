@@ -20,13 +20,8 @@ class Ruby192P330 < Formula
     build 703
   end
 
-  fails_with :gcc => "4.9" do
-    version "4.9.3"
-  end
-
-  fails_with :gcc => "5" do
-    version "5.3.0"
-  end
+  fails_with :gcc => "4.9"
+  fails_with :gcc => "5"
 
   def install
     args = %W[
