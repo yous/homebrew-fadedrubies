@@ -16,7 +16,7 @@ before_install:
   - brew update
 install:
   - brew uninstall gcc48 gcc49 gcc -f
-  - if [[ "$OSX" != "10.11" ]]; then
+  - if [[ "$OSX" == "10.9" ]]; then
       brew uninstall gcc46 -f;
       brew install homebrew/versions/gcc46;
     fi
@@ -29,7 +29,7 @@ script:
   - export TARGET="ruby-1.8.7-p374" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
   - export TARGET="ruby-1.9.0-5" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
   - export TARGET="ruby-1.9.1-p431" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
-  - if [[ "$OSX" != "10.11" ]]; then
+  - if [[ "$OSX" == "10.9" ]]; then
       export TARGET="ruby-1.9.2-p330" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET;
     fi
   - export TARGET="ruby-1.9.3-p551" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
