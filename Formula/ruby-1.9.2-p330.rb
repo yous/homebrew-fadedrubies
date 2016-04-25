@@ -8,6 +8,10 @@ class Ruby192P330 < Formula
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
 
+  # gcc47 isn't available on OS X 10.11.
+  # https://github.com/Homebrew/homebrew-versions/issues/1056
+  depends_on MaximumMacOSRequirement => :yosemite
+
   depends_on "pkg-config" => :build
   depends_on "readline" => :recommended
   depends_on "gdbm" => :optional
@@ -20,6 +24,7 @@ class Ruby192P330 < Formula
     build 703
   end
 
+  fails_with :gcc => "4.8"
   fails_with :gcc => "4.9"
   fails_with :gcc => "5"
 
