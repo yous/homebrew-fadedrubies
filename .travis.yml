@@ -37,4 +37,14 @@ install:
   - brew install homebrew/versions/gcc49
   - brew install gcc
 script:
-  - brew test-bot --tap=yous/fadedrubies
+  - export TARGET="ruby-1.8.7-p301" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p302" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p330" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p334" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p352" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p357" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p358" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p370" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p371" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p373" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p374" && brew install $TARGET && brew test $TARGET
