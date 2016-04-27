@@ -24,7 +24,8 @@ install:
   - brew install yous/fadedrubies/openssl098
   - brew uninstall gcc48 gcc49 gcc -f
   - if [[ "$OSX" == "10.9" ]]; then
-      brew uninstall gcc44 -f;
+      brew uninstall gcc43 gcc44 -f;
+      brew install homebrew/versions/gcc43;
       brew install homebrew/versions/gcc44;
     fi
   - if [[ "$OSX" != "10.11" ]]; then
@@ -37,4 +38,11 @@ install:
   - brew install homebrew/versions/gcc49
   - brew install gcc
 script:
-  - brew test-bot --tap=yous/fadedrubies
+  - if [[ "$OSX" == "10.9" ]]; then
+      export TARGET="ruby-1.9.1-p0" && brew install $TARGET && brew test $TARGET;
+    fi
+  - if [[ "$OSX" != "10.11" ]]; then
+      export TARGET="ruby-1.9.1-p129" && brew install $TARGET && brew test $TARGET;
+    fi
+  - export TARGET="ruby-1.9.1-p243" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.9.1-p376" && brew install $TARGET && brew test $TARGET
