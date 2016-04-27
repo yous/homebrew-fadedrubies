@@ -37,4 +37,13 @@ install:
   - brew install homebrew/versions/gcc49
   - brew install gcc
 script:
-  - brew test-bot --tap=yous/fadedrubies
+  - export TARGET="ruby-1.9.2-preview1" && brew install $TARGET && brew test $TARGET
+  - if [[ "$OSX" != "10.10" ]]; then
+      export TARGET="ruby-1.9.2-preview3" && brew install $TARGET && brew test $TARGET;
+    fi
+  - if [[ "$OSX" == "10.9" ]]; then
+      export TARGET="ruby-1.9.2-rc1" && brew install $TARGET && brew test $TARGET;
+    fi
+  - if [[ "$OSX" == "10.9" ]]; then
+      export TARGET="ruby-1.9.2-rc2" && brew install $TARGET && brew test $TARGET;
+    fi
