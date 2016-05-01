@@ -8,9 +8,10 @@ class Ruby192P330 < Formula
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
 
-  # - gcc47 isn't available on OS X 10.11.
-  #   https://github.com/Homebrew/homebrew-versions/issues/1056
-  # - gcc46 on OS X 10.10 fails to compile ruby 1.9.2-p330.
+  # gcc47 isn't available on OS X 10.11.
+  # https://github.com/Homebrew/homebrew-versions/issues/1056
+  # gcc46, gcc45 can't compile on OS X 10.10.
+  # gcc44 isn't available on OS X 10.10.
   depends_on MaximumMacOSRequirement => :mavericks
 
   depends_on "pkg-config" => :build
@@ -36,7 +37,6 @@ class Ruby192P330 < Formula
     args = %W[
       --prefix=#{prefix}
       --enable-shared
-      --disable-silent-rules
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
     ]

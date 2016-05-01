@@ -8,6 +8,11 @@ class Ruby192P0 < Formula
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
 
+  # gcc47 isn't available on OS X 10.11.
+  # https://github.com/Homebrew/homebrew-versions/issues/1056
+  # gcc44 isn't available on OS X 10.10.
+  depends_on MaximumMacOSRequirement => :mavericks
+
   depends_on "pkg-config" => :build
   depends_on "readline" => :recommended
   depends_on "gdbm" => :optional
@@ -20,6 +25,11 @@ class Ruby192P0 < Formula
     build 703
   end
 
+  fails_with :gcc => "4.5"
+  fails_with :gcc => "4.6"
+  fails_with :gcc => "4.7"
+  fails_with :gcc => "4.8"
+  fails_with :gcc => "4.9"
   fails_with :gcc => "5"
 
   keg_only "Installing another version in parallel can cause conflicts."
@@ -28,7 +38,6 @@ class Ruby192P0 < Formula
     args = %W[
       --prefix=#{prefix}
       --enable-shared
-      --disable-silent-rules
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
     ]
@@ -39,7 +48,7 @@ class Ruby192P0 < Formula
     end
 
     args << "--program-suffix=#{program_suffix}"
-    args << "--without-tk" if build.without? "tcltk"
+    args << "--with-out-ext=tk" if build.without? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 

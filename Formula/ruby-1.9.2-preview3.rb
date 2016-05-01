@@ -15,13 +15,25 @@ class Ruby192Preview3 < Formula
   depends_on "openssl098"
   depends_on :x11 if build.with? "tcltk"
 
+  fails_with :clang do
+    build 700
+  end
+
+  if MacOS.version >= :yosemite
+    fails_with :gcc => "4.5"
+    fails_with :gcc => "4.6"
+  end
+  fails_with :gcc => "4.7"
+  fails_with :gcc => "4.8" if MacOS.version <= :yosemite
+  fails_with :gcc => "4.9"
+  fails_with :gcc => "5"
+
   keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[
       --prefix=#{prefix}
       --enable-shared
-      --disable-silent-rules
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
     ]
@@ -32,7 +44,7 @@ class Ruby192Preview3 < Formula
     end
 
     args << "--program-suffix=#{program_suffix}"
-    args << "--without-tk" if build.without? "tcltk"
+    args << "--with-out-ext=tk" if build.without? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 

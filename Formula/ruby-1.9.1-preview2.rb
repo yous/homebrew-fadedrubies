@@ -21,7 +21,6 @@ class Ruby191Preview2 < Formula
     args = %W[
       --prefix=#{prefix}
       --enable-shared
-      --disable-silent-rules
       --with-sitedir=#{HOMEBREW_PREFIX}/lib/ruby/site_ruby
       --with-vendordir=#{HOMEBREW_PREFIX}/lib/ruby/vendor_ruby
     ]
@@ -32,7 +31,7 @@ class Ruby191Preview2 < Formula
     end
 
     args << "--program-suffix=#{program_suffix}"
-    args << "--without-tk" if build.without? "tcltk"
+    args << "--enable-tcltk-framework" if build.with? "tcltk"
     args << "--disable-install-doc" if build.without? "doc"
     args << "--disable-dtrace" unless MacOS::CLT.installed?
 
