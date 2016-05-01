@@ -21,6 +21,8 @@ class Ruby213 < Formula
     build 703
   end
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   def install
     args = %W[
       --prefix=#{prefix}

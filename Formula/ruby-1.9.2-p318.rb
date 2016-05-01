@@ -22,6 +22,8 @@ class Ruby192P318 < Formula
 
   fails_with :gcc => "5"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   def install
     args = %W[
       --prefix=#{prefix}

@@ -12,7 +12,7 @@ To install Ruby 2.3.0:
 $ brew tap yous/fadedrubies
 $ brew install ruby-2.3.0
 $ brew test ruby-2.3.0
-$ ruby-2.3.0 -e 'puts RUBY_VERSION'
+$ "$(brew --cellar)/ruby-2.3.0/2.3.0/bin/ruby-2.3.0" -e 'puts RUBY_VERSION'
 2.3.0
 ```
 

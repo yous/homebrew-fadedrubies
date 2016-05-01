@@ -17,6 +17,8 @@ class Ruby230 < Formula
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   def install
     ENV["SDKROOT"] = ""
 

@@ -14,6 +14,8 @@ class Ruby1902 < Formula
   depends_on "openssl098"
   depends_on :x11 if build.with? "tcltk"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   def install
     args = %W[
       --prefix=#{prefix}

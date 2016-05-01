@@ -35,16 +35,16 @@ install:
   - brew install homebrew/versions/gcc49
   - brew install gcc
 script:
-  - export TARGET="ruby-1.8.6-p420" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
-  - export TARGET="ruby-1.8.7-p374" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
-  - export TARGET="ruby-1.9.0-5" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
-  - export TARGET="ruby-1.9.1-p431" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - export TARGET="ruby-1.8.6-p420" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.8.7-p374" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.9.0-5" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-1.9.1-p431" && brew install $TARGET && brew test $TARGET
   - if [[ "$OSX" == "10.9" ]]; then
-      export TARGET="ruby-1.9.2-p330" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET;
+      export TARGET="ruby-1.9.2-p330" && brew install $TARGET && brew test $TARGET;
     fi
-  - export TARGET="ruby-1.9.3-p551" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
-  - export TARGET="ruby-2.0.0-p648" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
-  - export TARGET="ruby-2.1.10" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
-  - export TARGET="ruby-2.2.4" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
-  - export TARGET="ruby-2.3.0" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - export TARGET="ruby-1.9.3-p551" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-2.0.0-p648" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-2.1.10" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-2.2.4" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-2.3.0" && brew install $TARGET && brew test $TARGET
   - brew test-bot --tap=yous/fadedrubies
