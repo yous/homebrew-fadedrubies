@@ -21,8 +21,15 @@ before_install:
 install:
   - brew uninstall gcc48 gcc49 gcc -f
   - if [[ "$OSX" == "10.9" ]]; then
-      brew uninstall gcc46 -f;
+      brew uninstall gcc43 gcc44 -f;
+      brew install homebrew/versions/gcc43;
+      brew install homebrew/versions/gcc44;
+    fi
+  - if [[ "$OSX" != "10.11" ]]; then
+      brew uninstall gcc45 gcc46 gcc47 -f;
+      brew install homebrew/versions/gcc45;
       brew install homebrew/versions/gcc46;
+      brew install homebrew/versions/gcc47;
     fi
   - brew install homebrew/versions/gcc48
   - brew install homebrew/versions/gcc49
