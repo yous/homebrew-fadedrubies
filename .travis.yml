@@ -13,6 +13,10 @@ matrix:
       osx_image: beta-xcode6.2
 before_install:
   - brew tap homebrew/versions
+  - mkdir -p "$(brew --repo)/Library/Taps/yous"
+  - ln -s "$TRAVIS_BUILD_DIR" "$(brew --repo)/Library/Taps/yous/homebrew-fadedrubies"
+  - cd "$(brew --repo)/Library/Taps/yous/homebrew-fadedrubies"
+  - export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/yous/homebrew-fadedrubies"
   - brew update
 install:
   - brew uninstall gcc48 gcc49 gcc -f
@@ -24,7 +28,6 @@ install:
   - brew install homebrew/versions/gcc49
   - brew install gcc
 script:
-  - brew test-bot --tap=yous/fadedrubies
   - export TARGET="ruby-1.8.6-p420" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
   - export TARGET="ruby-1.8.7-p374" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
   - export TARGET="ruby-1.9.0-5" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
@@ -37,3 +40,4 @@ script:
   - export TARGET="ruby-2.1.10" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
   - export TARGET="ruby-2.2.4" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
   - export TARGET="ruby-2.3.0" && brew install $TARGET && brew test $TARGET && brew unlink $TARGET
+  - brew test-bot --tap=yous/fadedrubies
