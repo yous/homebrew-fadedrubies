@@ -19,5 +19,22 @@ before_install:
   - export TRAVIS_BUILD_DIR="$(brew --repo)/Library/Taps/yous/homebrew-fadedrubies"
   - brew update
   - export HOMEBREW_DEVELOPER="1"
+install:
+  - brew uninstall openssl098 -f
+  - brew install yous/fadedrubies/openssl098
+  - brew uninstall gcc48 gcc49 gcc -f
+  - if [[ "$OSX" == "10.9" ]]; then
+      brew uninstall gcc44 -f;
+      brew install homebrew/versions/gcc44;
+    fi
+  - if [[ "$OSX" != "10.11" ]]; then
+      brew uninstall gcc45 gcc46 gcc47 -f;
+      brew install homebrew/versions/gcc45;
+      brew install homebrew/versions/gcc46;
+      brew install homebrew/versions/gcc47;
+    fi
+  - brew install homebrew/versions/gcc48
+  - brew install homebrew/versions/gcc49
+  - brew install gcc
 script:
   - brew test-bot --tap=yous/fadedrubies
