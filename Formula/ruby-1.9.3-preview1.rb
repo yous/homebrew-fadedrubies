@@ -5,6 +5,8 @@ class Ruby193Preview1 < Formula
   version "1.9.3-preview1"
   sha256 "a15d7924d74a45ffe48d5421c5fc4ff83b7009676054fa5952b890711afef6fc"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -16,8 +18,6 @@ class Ruby193Preview1 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[

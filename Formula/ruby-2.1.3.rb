@@ -4,6 +4,8 @@ class Ruby213 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.3.tar.bz2"
   sha256 "36ce72f84ae4129f6cc66e33077a79d87b018ea7bf1dbc3d353604bf006f76d6"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -20,8 +22,6 @@ class Ruby213 < Formula
   fails_with :clang do
     build 703
   end
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[

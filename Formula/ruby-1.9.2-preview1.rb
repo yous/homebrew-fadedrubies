@@ -5,6 +5,8 @@ class Ruby192Preview1 < Formula
   version "1.9.2-preview1"
   sha256 "0681204e52207153250da80b3cc46812f94107807458a7d64b17554b6df71120"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -23,8 +25,6 @@ class Ruby192Preview1 < Formula
   fails_with :gcc => "4.8" if MacOS.version <= :yosemite
   fails_with :gcc => "4.9"
   fails_with :gcc => "5"
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[

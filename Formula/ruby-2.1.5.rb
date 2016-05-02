@@ -4,6 +4,8 @@ class Ruby215 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.5.tar.bz2"
   sha256 "0241b40f1c731cb177994a50b854fb7f18d4ad04dcefc18acc60af73046fb0a9"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -16,8 +18,6 @@ class Ruby215 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[

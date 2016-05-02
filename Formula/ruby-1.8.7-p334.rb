@@ -4,6 +4,8 @@ class Ruby187P334 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/1.8/ruby-1.8.7-p334.tar.bz2"
   sha256 "3e7f1a15fb2c205ac9eb0da804983b83bf8c0ffeb2f146d1eb9e0579ea2507da"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -13,8 +15,6 @@ class Ruby187P334 < Formula
   depends_on "gdbm" => :optional
   depends_on "openssl098"
   depends_on :x11 if build.with? "tcltk"
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[

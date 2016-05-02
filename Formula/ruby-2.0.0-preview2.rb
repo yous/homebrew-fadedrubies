@@ -5,6 +5,8 @@ class Ruby200Preview2 < Formula
   version "2.0.0-preview2"
   sha256 "cea98c000a113f10cb7d55753c759da1f1baa7ca9b3edf75fc19fa5f44bf71a0"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -20,8 +22,6 @@ class Ruby200Preview2 < Formula
   fails_with :clang do
     build 703
   end
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[

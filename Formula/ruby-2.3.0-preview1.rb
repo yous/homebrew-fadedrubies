@@ -5,6 +5,8 @@ class Ruby230Preview1 < Formula
   version "2.3.0-preview1"
   sha256 "42b9c9e1740a5abe2855d11803524370bd95744c8dcb0068572ed5c969ac7f0f"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -17,8 +19,6 @@ class Ruby230Preview1 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     ENV["SDKROOT"] = ""

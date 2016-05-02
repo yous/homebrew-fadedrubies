@@ -4,6 +4,8 @@ class Ruby192P330 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-p330.tar.bz2"
   sha256 "6d3487ea8a86ad0fa78a8535078ff3c7a91ca9f99eff0a6a08e66c6e6bf2040f"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -30,8 +32,6 @@ class Ruby192P330 < Formula
   fails_with :gcc => "4.8"
   fails_with :gcc => "4.9"
   fails_with :gcc => "5"
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[

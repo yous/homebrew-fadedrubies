@@ -4,6 +4,8 @@ class Ruby191P429 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.1-p429.tar.bz2"
   sha256 "e0b9471d77354628a8041068f45734eb2d99f5b5df08fe5a76d785d989a47bfb"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -13,8 +15,6 @@ class Ruby191P429 < Formula
   depends_on "gdbm" => :optional
   depends_on "openssl098"
   depends_on :x11 if build.with? "tcltk"
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[

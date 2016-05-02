@@ -4,6 +4,8 @@ class Ruby192Rc2 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/1.9/ruby-1.9.2-rc2.tar.bz2"
   sha256 "692ebae991b104482dc9f0d220c1afb6b690a338b3b815aaa4f62954d2fa1b4a"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -30,8 +32,6 @@ class Ruby192Rc2 < Formula
   fails_with :gcc => "4.8"
   fails_with :gcc => "4.9"
   fails_with :gcc => "5"
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[

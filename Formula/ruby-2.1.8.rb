@@ -4,6 +4,8 @@ class Ruby218 < Formula
   url "https://cache.ruby-lang.org/pub/ruby/2.1/ruby-2.1.8.tar.bz2"
   sha256 "250d0b589cba97caddc86a28849365ad0d475539448cf76bbae93190985b3387"
 
+  keg_only "Installing another version in parallel can cause conflicts."
+
   option :universal
   option "with-doc", "Install documentation"
   option "with-tcltk", "Install with Tcl/Tk support"
@@ -16,8 +18,6 @@ class Ruby218 < Formula
   depends_on "libyaml"
   depends_on "openssl"
   depends_on :x11 if build.with? "tcltk"
-
-  keg_only "Installing another version in parallel can cause conflicts."
 
   def install
     args = %W[
