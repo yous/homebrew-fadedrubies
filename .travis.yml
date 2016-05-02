@@ -38,6 +38,6 @@ script:
   - export TARGET="ruby-1.9.3-p551" && brew install $TARGET && brew test $TARGET
   - export TARGET="ruby-2.0.0-p648" && brew install $TARGET && brew test $TARGET
   - export TARGET="ruby-2.1.10" && brew install $TARGET && brew test $TARGET
-  - export TARGET="ruby-2.2.4" && brew install $TARGET && brew test $TARGET
+  - export TARGET="ruby-2.2.5" && brew install $TARGET && brew test $TARGET
   - export TARGET="ruby-2.3.0" && brew install $TARGET && brew test $TARGET
   - brew test-bot --tap=yous/fadedrubies
