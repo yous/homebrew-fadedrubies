@@ -218,11 +218,12 @@ $ "$(brew --cellar)/ruby-2.3.0/2.3.0/bin/ruby-2.3.0" -e 'puts RUBY_VERSION'
 
 | Version | Build Status |
 | --- | --- |
-| 2.3.0-preview1 ~ 2.3.0 | [![Build Status](https://travis-ci.org/yous/homebrew-fadedrubies.svg?branch=ruby-2.3)](https://travis-ci.org/yous/homebrew-fadedrubies) |
+| 2.3.0-preview1 ~ 2.3.1 | [![Build Status](https://travis-ci.org/yous/homebrew-fadedrubies.svg?branch=ruby-2.3)](https://travis-ci.org/yous/homebrew-fadedrubies) |
 
 - 2.3.0-preview1
 - 2.3.0-preview2
 - 2.3.0
+- 2.3.1
 
 ## License
 
